@@ -1,47 +1,42 @@
+let myimage = null;
+function int() {
+  myimage = document.getElementById("d");
+  myimage.style.position = "absolute";
+  myimage.style.left = "0px";
+  myimage.style.top = "0px";
+  window.addEventListener("keydown", myFunction);
+}
+
 function moveUp() {
-  let moveup = document.getElementById("d");
-  moveup.style.top = "0px";
-  moveup.style.top = parseInt(moveup.style.top) + 5 + "px";
+  myimage.style.top = parseInt(myimage.style.top) - 10 + "px";
 }
 
 function moveDown() {
-  let movedown = document.getElementById("d");
-  movedown.style.top = "0px";
-  movedown.style.top = parseInt(movedown.style.top) - 5 + "px";
+  myimage.style.top = parseInt(myimage.style.top) + 10 + "px";
 }
 
 function moveLeft() {
-  let moveleft = document.getElementById("d");
-  moveleft.style.top = "0px";
-  moveleft.style.top = parseInt(moveleft.style.top) - 5 + "px";
+  myimage.style.left = parseInt(myimage.style.left) - 10 + "px";
 }
 
 function moveRight() {
-  let moveright = document.getElementById("d");
-  moveright.style.top = "0px";
-  moveright.style.top = parseInt(moveright.style.top) + 5 + "px";
+  myimage.style.left = parseInt(myimage.style.left) + 10 + "px";
 }
 
-function myFuncation(evt) {
-  switch (evt.keycode) {
-    case 37:
+function myFunction(evt) {
+  switch (evt.keyCode) {
+    case 37: // Left arrow
       moveLeft();
       break;
-
-    case 38:
+    case 38: // Up arrow
       moveUp();
       break;
-
-    case 39:
+    case 39: // Right arrow
       moveRight();
       break;
-
-    case 40:
+    case 40: // Down arrow
       moveDown();
       break;
   }
-  function letMove() {
-    window.addEventListener("keydown", myFuncation);
-  }
 }
-window.onload = letMove;
+window.onload = int;
